@@ -1,12 +1,7 @@
 name: CI/CD Pipeline
 
 on:
-  push:
-    branches:
-      - main  # or the branch you want to trigger the workflow
-  pull_request:
-    branches:
-      - main
+  [push, pull_request]
 
 jobs:
   cypress-run:
