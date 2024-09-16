@@ -24,17 +24,21 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("loginWithCredentials", (username, passwrod)=>{
-    cy.visit('/');
-    cy.get('[data-testid="login-with-password"]').should('be.visible').click();
-    cy.get('[data-testid="email"]').should('be.visible').type('qa+employee@carevalidate.com');
-    cy.get('[data-testid="password"]').should('be.visible').type('bLPgk5tr7D3ZqpXvV@aNKz');
-    cy.get('[data-testid="continue"]').should('be.enabled').click();
-    cy.contains('QA employee (QA Interview)').should('exist');
-})
+Cypress.Commands.add("loginWithCredentials", (username, passwrod) => {
+  cy.visit("/");
+  cy.get('[data-testid="login-with-password"]').should("be.visible").click();
+  cy.get('[data-testid="email"]')
+    .should("be.visible")
+    .type("qa+employee@carevalidate.com");
+  cy.get('[data-testid="password"]')
+    .should("be.visible")
+    .type("bLPgk5tr7D3ZqpXvV@aNKz");
+  cy.get('[data-testid="continue"]').should("be.enabled").click();
+  cy.contains("QA employee (QA Interview)").should("exist");
+});
 
-Cypress.Commands.add("logout", ()=>{
-    cy.get('[data-testid="right-menu"]').click();
-    cy.contains('Log out').click();
-    cy.contains('Welcome back! Please enter your details.').should('exist')
-})
+Cypress.Commands.add("logout", () => {
+  cy.get('[data-testid="right-menu"]').click();
+  cy.contains("Log out").click();
+  cy.contains("Welcome back! Please enter your details.").should("exist");
+});
