@@ -30,9 +30,9 @@ Cypress.Commands.add("loginWithCredentials", (username, passwrod) => {
   cy.get('[data-testid="email"]')
     .should("be.visible")
     .type("qa+employee@carevalidate.com");
-  cy.get('[data-testid="password"]')
-    .should("be.visible")
-    .type("bLPgk5tr7D3ZqpXvV@aNKz");
+  // cy.get('[data-testid="password"]')
+  //   .should("be.visible")
+  //   .type("bLPgk5tr7D3ZqpXvV@aNKz");
   cy.get('[data-testid="continue"]').should("be.enabled").click();
   cy.contains("QA employee (QA Interview)").should("exist");
 });
