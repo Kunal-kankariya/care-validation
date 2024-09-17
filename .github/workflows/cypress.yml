@@ -1,7 +1,7 @@
 name: CI/CD Pipeline
 
 on:
-  [push, pull_request]
+  [push]
 
 jobs:
   cypress-run:
@@ -21,7 +21,7 @@ jobs:
       - name: Install Cypress
         run: npx cypress install
       - name: Run Cypress tests
-        run: npx cypress run || true
+        run: npx cypress run
 
       - name: Upload Cypress screenshots
         uses: actions/upload-artifact@v3
