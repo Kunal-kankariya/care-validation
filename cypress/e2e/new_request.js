@@ -5,6 +5,7 @@ const weightLossUserDetails = (flied, text) => {
 };
 
 describe("new request", () => {
+  
   it("user create a new request", () => {
     cy.loginWithCredentials();
     cy.get('[aria-label="Menu"]').should("be.visible").click();
