@@ -6,6 +6,12 @@ on:
 jobs:
   cypress-run:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        group:
+          - "login.logout.js"
+          - "new_request.js"
+      max-parallel: 2
 
     steps:
       - name: Checkout code
@@ -22,7 +28,7 @@ jobs:
         run: npx cypress install
       - name: Run Cypress tests
         run: |
-          npx cypress run || echo "Cypress tests failed" 
+          npx cypress run --ci-build-id ${{ github.run_id }} --spec "cypress/integration/${{ matrix.group }}" || echo "Cypress tests failed"
 
       - name: Upload Cypress screenshots
         if: always()
