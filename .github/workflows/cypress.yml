@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         group:
-          - "login.logout.js"
+          - "login_logout.js"
           - "new_request.js"
       max-parallel: 2
 
