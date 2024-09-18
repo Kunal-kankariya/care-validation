@@ -24,11 +24,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
       - name: Install Cypress
         run: npx cypress install
+
       - name: Run Cypress tests
         run: |
-          npx cypress run --ci-build-id ${{ github.run_id }} --spec "cypress/integration/${{ matrix.group }}" || echo "Cypress tests failed"
+          npx cypress run --spec "cypress/integration/${{ matrix.group }}" || echo "Cypress tests failed"
 
       - name: Upload Cypress screenshots
         if: always()
