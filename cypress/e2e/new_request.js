@@ -4,7 +4,7 @@ const clickAndAddDetail = (flied, text) => {
   cy.clickOptionWithText("Continue");
 };
 
-describe("new request", () => {
+describe("New request", () => {
   it("user create a new request", () => {
     cy.loginWithCredentials();
     cy.clickOptionWithElement('[aria-label="Menu"]');
